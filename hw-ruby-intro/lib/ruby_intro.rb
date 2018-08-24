@@ -1,9 +1,12 @@
 # When done, submit this entire file to the autograder.
+#Mitchell Walker
+#CS 3300
+#This program serves to test out various features of the ruby programming language
 
 # Part 1
 
 def sum arr
-  
+  #passed test
   array_sum = 0
   
   arr.each do |n|
@@ -12,16 +15,34 @@ def sum arr
   
   end
   
-   array_sum
+  array_sum
 
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  #passed test
+  sum arr.sort.pop(2)
+  
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  #passed test
+  combo_array = []
+  
+  combo_array = arr.combination(2).to_a
+  
+  combo_array.each do |a|
+  
+    if sum(a) == n
+  
+      return true
+       
+    end
+  
+  end
+  
+  false
+  
 end
 
 # Part 2
