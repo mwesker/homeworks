@@ -3,7 +3,16 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE 
+  
+  array_sum = 0
+  
+  arr.each do |n|
+  
+  array_sum += n
+  
+  end
+  
+   array_sum
 
 end
 
