@@ -6,61 +6,72 @@
 # Part 1
 
 def sum arr
-  #passed test
-  array_sum = 0
-  
-  arr.each do |n|
-  
-  array_sum += n
-  
-  end
-  
-  array_sum
-
+ arr.reduce(0){ |a, e| a + e }
+ 
 end
 
 def max_2_sum arr
-  #passed test
-  sum arr.sort.pop(2)
+  case
+  when arr.empty?
+    0
+  when arr.size == 1
+    arr[0]
+  else
+    sum(arr.sort.last(2))
+  end
   
 end
 
-def sum_to_n? arr, n
-  #passed test
-  combo_array = []
-  
-  combo_array = arr.combination(2).to_a
-  
-  combo_array.each do |a|
-  
-    if sum(a) == n
-  
-      return true
-       
-    end
-  
-  end
-  
-  false
-  
+def sum_to_n? arr, n 
+ arr.empty? ? false : arr.combination(2).any? { |a, e| a + e == n }
+ 
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{ name }"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+ /^[^aeiou\W_\d]/i.match(s) != nil
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  /^0$|^[10]*00$/.match(s)!= nil
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  
+  def initialize isbn, price
+    raise ArgumentError if isbn.empty? || price <= 0
+    @isbn = isbn
+    @price = price
+  end
+
+  def price_as_string 
+    "$#{"%0.2f" % price}"
+  end
+   
+
+  def isbn
+    @isbn
+  
+  end
+  
+  def isbn= isbn
+    @isbn = isbn
+  end
+
+  def price
+    @price
+  
+  end
+  
+  def price= price
+    @price = price
+  end
+
 end
