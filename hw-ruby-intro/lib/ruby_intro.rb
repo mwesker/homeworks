@@ -41,6 +41,7 @@ def binary_multiple_of_4? s
   /^0$|^[10]*00$/.match(s)!= nil
 end
 
+
 # Part 3
 
 class BookInStock
